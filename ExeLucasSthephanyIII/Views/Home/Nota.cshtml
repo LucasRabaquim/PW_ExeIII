@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Nota";
+}
+
+<h2>Calculando minha nota</h2>
+@if (TempData["Nota"] == "Invalido")
+{
+    <h2 style="color:#fff; background-color:#FF0000;">Insira a quantidade de erros!</h2>
+}
+<form action="CalculaNota" method="post">
+    <h2>Digite a quantidade de erros: <input type="number" min="0" max="10" name="Erros" /></h2>
+    <input type="submit" value="Calcular" />
+</form>

@@ -1,0 +1,30 @@
+﻿@model ExeLucasSthephanyIII.Models.Funcionario
+@{
+    ViewBag.Title = "CadastrarFunc";
+}
+
+<h2>Cadastre um Funcionário</h2>
+@if (TempData["campo"] != null){
+    <h2 style="color:#fff; background-color:#FF0000;">O campo @TempData["campo"] deve ser preenchido!</h2>
+}
+
+<form action="SelectFuncionario" method="post">
+    <div>
+        <label for="CodigoFunc">Código: </label>
+        <input type="number" value="@Model.Codigo" min="0" name="Codigo" id="Codigo" />
+    </div>
+    <br />
+    <div>
+        <label for="NomeFunc">Nome: </label>
+        <input type="text" value="@Model.Nome" name="Nome" id="Nome"/>
+    </div>
+    <br />
+    <div>
+        <label for="FuncaoFunc">Função: </label>
+        <input type="text" value="@Model.Funcao" name="Funcao" id="Funcao"/>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Cadastrar" />
+    </div>
+</form>
