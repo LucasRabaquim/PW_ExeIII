@@ -18,14 +18,14 @@ namespace ExeLucasSthephanyIII.Controllers
             return View();
         }
 
-        public ActionResult CalculaNota(int? Erros)
+        public ActionResult CalculaNota(int? NumeroErros)
         {
-            if (Erros == null)
+            if (NumeroErros == null)
             {
                 TempData["Nota"] = "Invalido";
                 return RedirectToAction("Nota");
             }
-            TempData["Nota"] = 10 - Erros;
+            TempData["Nota"] = 10 - NumeroErros;
             return View();
         }
     }

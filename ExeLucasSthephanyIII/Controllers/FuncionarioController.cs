@@ -21,21 +21,24 @@ namespace ExeLucasSthephanyIII.Controllers
         }
 
         [HttpPost]
-        public ActionResult SelectFuncionario(FormCollection form)
+        public ActionResult SelectFuncionario(string codigo, string nome, string funcao)
         {
-            ViewBag.Codigo = form["Codigo"];
-            ViewBag.Nome = form["Nome"];
-            ViewBag.Funcao = form["Funcao"];
-            if (ViewBag.Codigo == "")
+            
+            if (codigo == "")
                 TempData["campo"] = "Código";
-            else if (ViewBag.Nome == "")
+            else if (nome == "")
                 TempData["campo"] = "Nome";
-            else if (ViewBag.Funcao == "")
+            else if (funcao == "")
                 TempData["campo"] = "Função";
             if (TempData["campo"] != null)
                 return RedirectToAction("Cadastro");
-            else
-                return View();
+
+            Funcionario func = new Funcionario(){ 
+            Codigo = Convert.ToInt32(codigo),
+            Nome = nome,
+            Funcao = funcao
+            };
+            return View(func);
         }
 
     }
